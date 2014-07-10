@@ -126,6 +126,7 @@ steal("can/view/parser", function(parser){
 		]));
 	});
 
+<<<<<<< HEAD
 	test("supports single character attributes (#1132)", function(){
 		parser('<circle r="25"></circle>', makeChecks([
 			["start", ["circle", false]],
@@ -135,6 +136,18 @@ steal("can/view/parser", function(parser){
 			["end", ["circle", false]],
 			["close", ["circle"]],
 			["done", []]
+		]));
+	});
+
+	test("block are allowed inside anchor tags", function(){
+		parser("<a><div></div></a>", makeChecks([
+			['start', ['a', false]],
+			['end', ['a', false]],
+			['start', ['div', false]],
+			['end', ['div', false]],
+			['close', ['div']],
+			['close', ['a']],
+			['done', []]
 		]));
 	});
 	
