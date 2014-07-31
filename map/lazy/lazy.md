@@ -7,7 +7,7 @@
 
 @description Create observable objects that initialize on demand.
 
-@signature `new can.LazyLazyMap([props])`
+@signature `new can.LazyMap([props])`
 
 Creates a new instance of can.LazyMap.
 
