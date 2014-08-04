@@ -3,11 +3,13 @@
 @plugin can/map/list
 @test can/map/list/test.html
 
+@deprecated {2.1} This plugin is pending review and its API has not been finalized. Including this plugin will overwrite [can.List.prototype.filter] (which is faster but doesn't provide live-updating). The new `filter` and `map` methods also have a slightly different API, including the _element_, _index_, and _list_ as arguments (instead of only _element_ and _list_).
+
 @description
 
 The `can.Map.List` plugin adds support for live-updating mapped and filtered observable lists.
 
-Including this plugin will overwrite [can.List.prototype.filter] (which is faster but doesn't provide live-updating). The new `filter` and `map` methods also have a slightly different API, including the _element_, _index_, and _list_ as arguments (instead of only _element_ and _list_).
+
 
 @signature `list.filter(callback)`
 
