@@ -27,10 +27,13 @@
             var config = window.CONFIGURATION = <%- JSON.stringify(configuration.steal) %>;
 
             steal.config(config);
-        }, "<%- tests.join('", "') %>", function() {
-			can.dev.logLevel = 3;
-			QUnit.start();
-		});
+            setTimeout(function(){
+				steal("<%- tests.join('", "') %>", function() {
+					can.dev.logLevel = 3;
+					QUnit.start();
+				});
+            },1);
+        })
 	</script>
 </body>
 </html>
