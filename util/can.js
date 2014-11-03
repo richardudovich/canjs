@@ -1,14 +1,13 @@
+/* global global: false */
 steal(function () {
 	/* global GLOBALCAN */
-	var can;
-	if (typeof window !== 'undefined') {
-		can = window.can || {};
-		if(typeof GLOBALCAN === 'undefined' || GLOBALCAN !== false) {
-			window.can = can;
-		}
-	} else {
-		can = {};
+	var glbl = typeof window !== "undefined" ? window : global;
+	
+	var can = glbl.can || {};
+	if (typeof GLOBALCAN === 'undefined' || GLOBALCAN !== false) {
+		glbl.can = can;
 	}
+	can.global = glbl;
 
 	// An empty function useful for where you need a dummy callback.
 	can.k = function(){};
@@ -85,7 +84,7 @@ steal(function () {
 			var ll = this.logLevel;
 			if (ll < 2) {
 				Array.prototype.unshift.call(arguments, 'WARN:');
-				if (window.console && console.warn) {
+				if (typeof window !== undefined && window.console && console.warn) {
 					this._logger("warn", Array.prototype.slice.call(arguments));
 				} else if (window.console && console.log) {
 					this._logger("log", Array.prototype.slice.call(arguments));
