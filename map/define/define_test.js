@@ -596,7 +596,7 @@ steal("can/map/define", "can/test", function () {
 		  define: {
 		    name: {
 		      value: nailedIt
-		    } 
+		    }
 		  }
 		});
 
